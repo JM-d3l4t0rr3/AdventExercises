@@ -15,6 +15,7 @@ int main(){
     int secondStart;
     int secondEnd;
     int sum = 0;
+    int sum2 = 0;
     while (getline (MyReadFile, myText)) {
         string firstRange = myText.substr(0,myText.find(','));
         string secondRange = myText.substr(myText.find(',') + 1, myText.npos);
@@ -28,9 +29,13 @@ int main(){
         if ( (firstStart >= secondStart && firstEnd <= secondEnd) || (firstStart <= secondStart && firstEnd >= secondEnd)){
             sum += 1;
         }
+        if( (secondStart <= firstEnd) && (secondEnd >= firstStart)){
+            sum2 += 1;
+        }
     }
 
 
     MyReadFile.close();
     cout << sum << endl;
+    cout << sum2 << endl;
 }

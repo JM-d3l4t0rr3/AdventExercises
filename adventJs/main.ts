@@ -32,4 +32,19 @@ const distributeGifts2 = (packOfGifts:string[], reindeers:string[]) => {
     return Math.floor(capacidad/peso);
 }
 
+//day 4
+
+function fitsInOneBox (boxes:{l:number,w:number,h:number}[]) {
+    return boxes.sort((box1:{l:number,w:number,h:number}, box2:{l:number,w:number,h:number}) => {
+        return box1.l - box2.l && box1.w - box2.w && box1.h - box2.h 
+    }).every((current:{l:number,w:number,h:number}, index:number) => {
+        if (index == 0) return true
+        else{
+            return current.l > boxes[index-1].l &&
+                    current.h > boxes[index-1].h &&
+                    current.w > boxes[index-1].w
+        }
+    })
+}
+
 
